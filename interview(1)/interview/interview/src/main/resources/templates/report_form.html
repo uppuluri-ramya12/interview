@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Report Issue</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <h2>Report Issue</h2>
+    <form method="post" action="/report">
+        <input type="hidden" id="postId" name="postId" th:value="${postId}">
+        <label for="issue">Describe the issue:</label>
+        <textarea id="issue" name="issue" required></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

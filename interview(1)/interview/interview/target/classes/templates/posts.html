@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Interview Questions</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <h2>Interview Questions</h2>
+    <form method="get" th:action="@{/posts}">
+        <label for="company">Company Name:</label>
+        <input type="text" id="company" name="company" placeholder="Enter company name">
+
+        <label for="role">Role:</label>
+        <input type="text" id="role" name="role" placeholder="Enter role">
+        
+        <button type="submit">Search</button>
+    </form>
+    
+
+    <a href="/post" class="post-button">Post a Question</a>
+   
+    
+    <div class="posts-container">
+        <div class="post-card" th:each="post : ${posts}">
+            <h3 th:text="${post.companyName}">Company Name</h3>
+            <p><strong>Role:</strong> <span th:text="${post.role}">Role</span></p>
+            <p><strong>Question:</strong> <span th:text="${post.question}">Interview Question</span></p>
+            <a th:href="@{/report(postId=${post.id})}">Report</a>
+        </div>
+    </div>
+</body>
+</html>
